@@ -55,32 +55,11 @@ console.log(ris); */
     .then(data => console.log(data))
     .catch(err => console.log(err)); */
 
-async function read(file) {
+/* async function read(file) {
     const data = await fs.promises.readFile(file, 'utf-8');
     console.log(data);
-}
+} */
 //read(file).catch(err => console.log(err));
-
-
-//# lettura di cartelle
-/* dir = '.\\cartella';
-fs.readdir(dir, (err, dirContent) => {
-
-    if (err) {
-        console.log(err);
-    } else {
-
-        for (content of dirContent) {
-            stat = fs.statSync(dir + '\\' + content);
-
-            if (stat.isDirectory()) {
-                console.log(`(dir) ${content}`);
-            } else {
-                console.log(`${content} (${stat.size} bytes)`);
-            }
-        }
-    }
-}); */
 
 
 //, Scrittura
@@ -137,3 +116,48 @@ testo = './testo.txt';
 /* fs.promises.rename(testo, `./cartella/sub/${testo}`)
     .then(()=> console.log('Spostamento completato'))
     .catch(err => console.log(err)); */
+
+
+
+
+
+//% Operazioni su cartelle
+
+//# lettura di cartelle
+dir = '.\\cartella';
+/* fs.readdir(dir, (err, dirContent) => {
+
+    if (err) {
+        console.log(err);
+    } else {
+
+        for (content of dirContent) {
+            stat = fs.statSync(dir + '\\' + content);
+
+            if (stat.isDirectory()) {
+                console.log(`(dir) ${content}`);
+            } else {
+                console.log(`${content} (${stat.size} bytes)`);
+            }
+        }
+    }
+}); */
+
+
+//# opendir() e altri metodi
+
+    /* async function fileList(directory) {
+        const dir = await fs.promises.opendir(directory); */
+        // console.log(dir);
+        /* console.log(await dir.read());
+        console.log(await dir.read());
+        console.log(await dir.read());
+        console.log(await dir.read()); */
+
+        /* for await(const item of dir) {
+            console.log(
+                item.name,
+                item.isFile() ? 'È un file' : 'È una cartella');
+        } */
+    /* }
+    fileList('.'); */

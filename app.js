@@ -153,19 +153,21 @@ dir = '.\\cartella';
 
 
 //# opendir() e altri metodi
+/* async function fileList(directory) {
+    const dir = await fs.promises.opendir(directory); */
+    // console.log(dir);
+    /* console.log(await dir.read());
+    console.log(await dir.read());
+    console.log(await dir.read());
+    console.log(await dir.read()); */
 
-    /* async function fileList(directory) {
-        const dir = await fs.promises.opendir(directory); */
-        // console.log(dir);
-        /* console.log(await dir.read());
-        console.log(await dir.read());
-        console.log(await dir.read());
-        console.log(await dir.read()); */
+    /* for await(const item of dir) {
+        console.log(
+            item.name,
+            item.isFile() ? 'È un file' : 'È una cartella');
+    } */
+/* }
+fileList('.'); */
 
-        /* for await(const item of dir) {
-            console.log(
-                item.name,
-                item.isFile() ? 'È un file' : 'È una cartella');
-        } */
-    /* }
-    fileList('.'); */
+
+//, Elencare contenuti delle cartelle

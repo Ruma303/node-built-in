@@ -99,6 +99,14 @@ testo = './testo.txt';
 }); */
 
 
+//, Informazioni sul file
+/* fs.stat(testo, (err, stats) => {
+    if (err) throw err;
+    console.log(stats);
+});
+ */
+
+
 //, Eliminare un file
 /* fs.unlink('./cartella/docu.pdf', err => {
     if (err) throw err;

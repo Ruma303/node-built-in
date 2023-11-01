@@ -155,19 +155,104 @@ dir = '.\\cartella';
 //# opendir() e altri metodi
 /* async function fileList(directory) {
     const dir = await fs.promises.opendir(directory); */
-    // console.log(dir);
-    /* console.log(await dir.read());
-    console.log(await dir.read());
-    console.log(await dir.read());
-    console.log(await dir.read()); */
+// console.log(dir);
+/* console.log(await dir.read());
+console.log(await dir.read());
+console.log(await dir.read());
+console.log(await dir.read()); */
 
-    /* for await(const item of dir) {
-        console.log(
-            item.name,
-            item.isFile() ? 'È un file' : 'È una cartella');
-    } */
+/* for await(const item of dir) {
+    console.log(
+        item.name,
+        item.isFile() ? 'È un file' : 'È una cartella');
+} */
 /* }
 fileList('.'); */
 
 
-//, Elencare contenuti delle cartelle
+//, readdirp()
+//const readdirp = require('readdirp');
+
+/* const filters = {
+    fileFilter: '*.txt',
+    directoryFilter: ['!.git'],
+    alwaysStat: true
+} */
+
+/* readdirp('.', { fileFilter: '*.js', alwaysStat: true })
+//readdirp('.', filters)
+    .on('data', (entry) => {
+        const { path, stats: { size } } = entry;
+        console.log(path, size);
+    }); */
+
+
+//, Spostare e rinominare cartella
+/* fs.rename('./cartella', 'subdirectory', function(err) {
+    if (err) throw err;
+    console.log('Cartella spostata / rinominata!');
+}); */
+
+
+//, Eliminare cartelle
+/* fs.rmdir('./cartella', function (err) {
+    if (err) throw err;
+    console.log('Cartella eliminata!');
+}); */
+
+
+//# Eliminare cartelle non vuote
+/* const path = require('path');
+const pathToDelete = './sub';
+
+function deleteFolderRecursive(pathToDelete) {
+    if (fs.existsSync(pathToDelete)) {
+        fs.readdirSync(pathToDelete).forEach((file, index) => {
+            const curPath = path.join(pathToDelete, file);
+            if (fs.lstatSync(curPath).isDirectory()) { //? ricorsione se è una cartella
+                deleteFolderRecursive(curPath);
+            } else { //? cancellazione se è un file
+                fs.unlinkSync(curPath);
+            }
+        });
+        fs.rmdirSync(pathToDelete);
+    }
+};
+
+deleteFolderRecursive(pathToDelete); */
+
+
+
+
+//, Monitorare cambiamenti nel file system
+
+/* for (i = 0; i < 999999; i++) {
+    i += 1;
+    console.log(i);
+} */
+
+
+/*  const opz = { persistent: true };
+fs.watch('log.txt', opz, (eve, content)  => {
+    console.log(eve, content);
+});
+const monitored = fs.watch('log.txt', opz);
+monitored
+    .on('change', (eve, content) => console.log(eve, content))
+    .on('error', (err) => console.log(err))
+    .on('close', () => console.log('Monitoraggio terminato'));
+
+function removeMonitoring () {
+    monitored.close();
+}
+setTimeout(removeMonitoring, 5000);
+ */
+
+
+//# chokidar
+
+    const chokidar = require('chokidar');
+
+    chokidar.watch('log.txt').on('all', (event, path) => {
+        console.log(event, path);
+    });

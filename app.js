@@ -1,17 +1,19 @@
 //% Process
-//console.log(process)
+console.log(process)
 /* console.log(process.versions)
 console.log(process.env)
 console.log(process.cwd())
 process.exit([console.log('Processo terminato')]) */
 
-//console.log(process.argv)
+/* console.log(process.argv);
+nome = process.argv[3];
+console.log(`Ciao, ${nome}`); */
 
 
 
 //% Yargs
-/* const cliArgs = require('yargs').argv;
-const yargs = require('yargs'); */
+//const cliArgs = require('yargs').argv;
+//const yargs = require('yargs');
 
 //# yargs.argv
 //console.log(cliArgs)
@@ -23,7 +25,7 @@ const yargs = require('yargs'); */
 //# yargs.command()
 /* yargs.command({
     command: 'get',
-    describe: 'Ricerca utente dal nome',
+    describe: 'Ricerca utente dal nome. Inserisci il flag --name="Tuo nome"',
     builder: {
         name: {
             describe: 'Nome dell\'utente da cercare',
@@ -33,6 +35,7 @@ const yargs = require('yargs'); */
     },
     handler(argv) {
         console.log(argv);
+        console.log(`Utente trovato! ${argv.name}`)
     }
 });
 yargs.parse(); */
@@ -58,8 +61,11 @@ yargs(hideBin(process.argv))
                     demandOption: true,
                     type: 'string'
                 })
-            },(argv) => console.log(argv)
+            },(argv) => {
+                console.log(argv);
+                console.log(`Utente trovato! ${argv.name}`);
+            }
         )
         .help()
-        .argv
- */
+        .argv */
+

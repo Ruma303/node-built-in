@@ -1,11 +1,13 @@
 const os = require('os');
+//console.log(os);
 
-console.log('---------------------\n');
+
+console.log(`---------------------${os.EOL}`);
 
 console.log(`arch: ${os.arch()}`);
-console.log('---------------------\n');
+console.log(`---------------------${os.EOL}`);
 
-console.log('Cpus:\n');
+console.log(`Cpus:${os.EOL}`);
 os.cpus().forEach(cpu => {
     console.log(`model: ${cpu.model}`);
     console.log(`speed: ${cpu.speed}`);
@@ -14,45 +16,45 @@ os.cpus().forEach(cpu => {
     console.log(`times.sys: ${cpu.times.sys}`);
     console.log(`times.idle: ${cpu.times.idle}`);
     console.log(`times.irq: ${cpu.times.irq}`);
-    console.log('\n')
+    console.log(`${os.EOL}`)
 });
-console.log('---------------------\n');
+console.log(`---------------------${os.EOL}`);
 
 console.log(`endianness: ${os.endianness()}`);
-console.log('---------------------\n');
+console.log(`---------------------${os.EOL}`);
 
 console.log(`freemem: ${os.freemem()}`);
-console.log('---------------------\n');
+console.log(`---------------------${os.EOL}`);
 
 console.log(`homedir: ${os.homedir()}`);
-console.log('---------------------\n');
+console.log(`---------------------${os.EOL}`);
 
 console.log(`loadavg: ${os.loadavg()}`);
-console.log('---------------------\n');
+console.log(`---------------------${os.EOL}`);
 
 console.log(`networkInterfaces: ${os.networkInterfaces()}`);
-console.log('---------------------\n');
+console.log(`---------------------${os.EOL}`);
 
 console.log(`platform: ${os.platform()}`);
-console.log('---------------------\n');
+console.log(`---------------------${os.EOL}`);
 
 console.log(`release: ${os.release()}`);
-console.log('---------------------\n');
+console.log(`---------------------${os.EOL}`);
 
 console.log(`tmpdir: ${os.tmpdir()}`);
-console.log('---------------------\n');
+console.log(`---------------------${os.EOL}`);
 
 console.log(`totalmem: ${os.totalmem()}`);
-console.log('---------------------\n');
+console.log(`---------------------${os.EOL}`);
 
 console.log(`type: ${os.type()}`);
-console.log('---------------------\n');
+console.log(`---------------------${os.EOL}`);
 
 console.log(`uptime: ${os.uptime()}`);
-console.log('---------------------\n');
+console.log(`---------------------${os.EOL}`);
 
 console.log(`userInfo: ${os.userInfo()}`);
-console.log('---------------------\n');
+console.log(`---------------------${os.EOL}`);
 
 console.log(`version: ${os.version()}`);
-console.log('---------------------\n');
+console.log(`---------------------${os.EOL}`);

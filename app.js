@@ -13,7 +13,7 @@ console.log(path.extname('/foo/bar/baz/asdf/index.html'));
 // Stampa: '.html'
 
 console.log(path.parse('/foo/bar/baz/asdf/index.html'));
-// Stampa: '.html'
+// Stampa: '.html
 
 console.log(path.join('/foo', 'bar', 'baz', 'quux', 'index.html'));
 // Stampa: '\foo\bar\baz\quux\index.html'

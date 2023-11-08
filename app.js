@@ -37,3 +37,6 @@ const fs = require('fs');
     for (i = 1; i <= 3; i++)
         ws.write(`\t${i}. ${persona()}`);
     ws.end('Scrittura terminata\n', null, () => console.log('Scrittura terminata')); */
+
+
+//% Duplex e Transform

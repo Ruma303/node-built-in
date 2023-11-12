@@ -1,4 +1,4 @@
-const fs = require('fs');
+//const fs = require('fs');
 
 
 //% Stream Readable
@@ -39,4 +39,94 @@ const fs = require('fs');
     ws.end('Scrittura terminata\n', null, () => console.log('Scrittura terminata')); */
 
 
-//% Duplex e Transform
+//% Pipe
+
+    /* let fs = require('fs');
+
+    let readableStream = fs.createReadStream('testo.txt', {
+        encoding: "utf-8",
+        highWaterMark: 10
+    });
+
+    let writableStream = fs.createWriteStream('output.txt');
+
+    readableStream.pipe(writableStream); */
+
+
+    //, Trasformare il contenuto
+
+    /* const fs = require('fs');
+    const stream = require('stream');
+
+    const upperCaseTransform = new stream.Transform({
+    transform(chunk, encoding, callback) {
+        this.push(chunk.toString().toUpperCase());
+        callback();
+    }});
+
+    let readableStream = fs.createReadStream('testo.txt', {
+        encoding: "utf-8"
+    });
+    let writableStream = fs.createWriteStream('output.txt');
+
+    readableStream.pipe(upperCaseTransform).pipe(writableStream); */
+
+    //, Approfondimenti sull'encoding
+    /* const upperCaseTransform = new stream.Transform({
+        transform(chunk, encoding, callback) {
+          if (Buffer.isBuffer(chunk)) {
+            chunk = chunk.toString('utf-8');
+          }
+          this.push(chunk.toUpperCase());
+          callback();
+        }}); */
+
+
+    //, Gestione errori
+    /* function handleError(err) {
+        console.log(err);
+    }
+    readableStream.on('error', handleError);
+    upperCaseTransform.on('error', handleError);
+    writableStream.on('error', handleError); */
+
+
+    //, unpipe()
+    /* setTimeout(() => {
+        readableStream.unpipe(writableStream); // Chiude il flusso scrivibile
+    }, 50);
+
+    writableStream.on('unpipe', (src) => {
+        console.log('readableStream non è più piped in un altro stream');
+        console.log(src)
+    }); */
+
+
+    //, Eventi end e finish
+    /* //? Per un flusso leggibile
+    readableStream.on('end', () => {
+        console.log('Il flusso leggibile ha terminato di emettere dati');
+    });
+
+    //? Per un flusso scrivibile
+    writableStream.on('finish', () => {
+        console.log('Il flusso scrivibile ha terminato di emettere dati');
+    }); */
+
+
+    //, finished()
+    /* const { finished } = require('stream');
+
+    finished(readableStream, (err) => {
+    if (err) {
+        console.error('Errore nel flusso di lettura.', err);
+    } else {
+        console.log('Flusso terminato con successo.');
+    }});
+
+    finished(writableStream, (err) => {
+        if (err) {
+            console.error('Errore nel flusso scrivibile.', err);
+        } else {
+            console.log('Flusso terminato con successo.');
+    }}); */

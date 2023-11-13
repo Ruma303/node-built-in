@@ -1,7 +1,1 @@
-Contenuto del file
-==================
-Riga #1
-Riga #2
-Riga #3
-Riga #4
-Riga #5
+Nuovo contenuto

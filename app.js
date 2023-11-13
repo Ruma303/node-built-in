@@ -2,7 +2,6 @@ const fs = require('fs');
 //console.log(fs);
 
 /* console.log(fs.existsSync('app.js'));
-
 console.log(fs.statSync('app.js')); */
 
 
@@ -11,6 +10,11 @@ console.log(fs.statSync('app.js')); */
 
 //, Lettura
 //# async
+
+/* fs.readFile('testo.txt', 'utf-8', (err, data) => {
+    console.log(data);
+}); */
+
 /* fs.readFile('testo.tx', 'utf-8', function(err, data) {
     if (err) {
         //console.log(err);
@@ -21,7 +25,7 @@ console.log(fs.statSync('app.js')); */
 });
 
 function handleError(err) {
-    console.log(`Errore catturato: ${err}`);
+    console.log(`Errore catturato: ${err.message}`);
 } */
 
 // Con eventi
@@ -34,8 +38,7 @@ fs.readFile('t.txt', 'utf-8', (err, data) => {
     }
     console.log(err, data);
 });
-eve.on('error', eventErr => console.log(eventErr));
- */
+eve.on('error', eventErr => console.log(eventErr)); */
 
 
 //# sync
@@ -44,27 +47,28 @@ eve.on('error', eventErr => console.log(eventErr));
     console.log(data);
 } catch (err) {
     console.log(err);
-} */
+}
+ */
 
-
-//# promise
+//# promises
 /* const ris = fs.promises.readFile('testo.txt', 'utf-8');
 console.log(ris); */
 
-/* fs.promises.readFile('testxt', 'utf-8')
+/* fs.promises.readFile('testo.txt', 'utf-8')
     .then(data => console.log(data))
     .catch(err => console.log(err)); */
 
 /* async function read(file) {
     const data = await fs.promises.readFile(file, 'utf-8');
     console.log(data);
-} */
-//read(file).catch(err => console.log(err));
+}
+read('testo.txt').catch(err => console.log(err)); */
 
 
 //, Scrittura
 
 testo = './testo.txt';
+
 //# async
 /* fs.writeFile(testo, 'Contenuto', err => {
     if (err) throw err;
@@ -73,8 +77,8 @@ testo = './testo.txt';
         console.log(data);
     }
     read(testo);
-}); */
-
+});
+ */
 
 //# promise
 /* fs.promises.writeFile(testo, 'Contenuto con promise')
@@ -83,7 +87,11 @@ testo = './testo.txt';
 
 
 //# appendFile()
-/* fs.promises.appendFile(testo, ' + contenuto aggiunto')
+/* async function read(file) {
+    const data = await fs.promises.readFile(file, 'utf-8');
+    console.log(data);
+}
+fs.promises.appendFile(testo, ' + contenuto aggiunto')
     .then(() => read(testo))
     .catch(err => console.log(err)); */
 
@@ -95,16 +103,15 @@ testo = './testo.txt';
     });
     fs.close(fd, err => {
         if (err) throw err;
-    })
-}); */
-
+    });
+});
+ */
 
 //, Informazioni sul file
 /* fs.stat(testo, (err, stats) => {
     if (err) throw err;
     console.log(stats);
-});
- */
+}); */
 
 
 //, Eliminare un file
@@ -115,9 +122,9 @@ testo = './testo.txt';
 
 
 //, Rinominare un file
-/* fs.promises.rename(testo, 'nuovo.txt')
+fs.promises.rename(testo, 'nuovo.txt')
     .then(()=> console.log('Rinomina completata'))
-    .catch(err => console.log(err)); */
+    .catch(err => console.log(err));
 
 
 //, Spostare un file
@@ -251,8 +258,8 @@ setTimeout(removeMonitoring, 5000);
 
 //# chokidar
 
-    const chokidar = require('chokidar');
+    /* const chokidar = require('chokidar');
 
     chokidar.watch('log.txt').on('all', (event, path) => {
         console.log(event, path);
-    });
+    }); */

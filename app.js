@@ -1,4 +1,4 @@
-//const fs = require('fs');
+const fs = require('fs');
 
 
 //% Stream Readable
@@ -10,6 +10,7 @@
     /* const rs = fs.createReadStream('testo.txt');
     totBytes = 0;
     rs.on('data', (chunk) => {
+        console.log(chunk);
         totBytes += chunk.length;
         console.log(`Lunghezza chunk: ${chunk.length} byte`);
         console.log(`Ho letto ${totBytes} byte di dati\n`);
@@ -36,14 +37,12 @@
 
     for (i = 1; i <= 3; i++)
         ws.write(`\t${i}. ${persona()}`);
-    ws.end('Scrittura terminata\n', null, () => console.log('Scrittura terminata')); */
-
+    ws.end('Scrittura terminata\n', null, () => console.log('Scrittura terminata'));
+ */
 
 //% Pipe
 
-    /* let fs = require('fs');
-
-    let readableStream = fs.createReadStream('testo.txt', {
+    /* let readableStream = fs.createReadStream('testo.txt', {
         encoding: "utf-8",
         highWaterMark: 10
     });
@@ -55,7 +54,6 @@
 
     //, Trasformare il contenuto
 
-    /* const fs = require('fs');
     const stream = require('stream');
 
     const upperCaseTransform = new stream.Transform({
@@ -69,9 +67,10 @@
     });
     let writableStream = fs.createWriteStream('output.txt');
 
-    readableStream.pipe(upperCaseTransform).pipe(writableStream); */
+    readableStream.pipe(upperCaseTransform).pipe(writableStream);
 
-    //, Approfondimenti sull'encoding
+
+    //# Approfondimenti sull'encoding
     /* const upperCaseTransform = new stream.Transform({
         transform(chunk, encoding, callback) {
           if (Buffer.isBuffer(chunk)) {
@@ -79,26 +78,32 @@
           }
           this.push(chunk.toUpperCase());
           callback();
-        }}); */
+    }}); */
 
 
     //, Gestione errori
-    /* function handleError(err) {
+   /*  function handleReadError(err) {
         console.log(err);
     }
-    readableStream.on('error', handleError);
-    upperCaseTransform.on('error', handleError);
-    writableStream.on('error', handleError); */
-
+    function handleTransformError(err) {
+        console.log(err);
+    }
+    function handleWriteError(err) {
+        console.log(err);
+    }
+    readableStream.on('error', handleReadError);
+    upperCaseTransform.on('error', handleTransformError);
+    writableStream.on('error', handleWriteError);
+ */
 
     //, unpipe()
     /* setTimeout(() => {
         readableStream.unpipe(writableStream); // Chiude il flusso scrivibile
-    }, 50);
+    }, 5000);
 
     writableStream.on('unpipe', (src) => {
         console.log('readableStream non è più piped in un altro stream');
-        console.log(src)
+        console.log(src);
     }); */
 
 
@@ -111,7 +116,7 @@
     //? Per un flusso scrivibile
     writableStream.on('finish', () => {
         console.log('Il flusso scrivibile ha terminato di emettere dati');
-    }); */
+    });*/
 
 
     //, finished()
@@ -129,4 +134,4 @@
             console.error('Errore nel flusso scrivibile.', err);
         } else {
             console.log('Flusso terminato con successo.');
-    }}); */
+    }});*/

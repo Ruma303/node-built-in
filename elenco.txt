@@ -1,7 +1,6 @@
-	Elisa Bianchi
 
 Inizio scrittura:
-	1. Giovanni Verdi
-	2. Elisa Verdi
-	3. Mario Bianchi
-Scrittura terminata
+	1. Elisa Verdi
+........	2. Mario Verdi
+........	3. Elisa Rossi
+........Scrittura terminata

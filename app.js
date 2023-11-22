@@ -3,6 +3,22 @@ const port = 3000;
 
 //, Creare un routing
 /* const server = http.createServer((request, response) => {
+    console.log(request.url);
+    if (request.url === '/favicon.ico') {
+        response.statusCode = 204;
+        return response.end();
+    }
+    let body = 'Contenuto';
+    response.writeHead(200, {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Content-Length': Buffer.byteLength(body),
+    });
+    response.end(body);
+}).listen(port, () => console.log(`Server in ascolto sulla porta ${port}`)); */
+
+
+/* const server = http.createServer((request, response) => {
+    console.log(request.url);
     if (request.url === '/favicon.ico') {
         response.statusCode = 204;
         return response.end();
@@ -25,9 +41,8 @@ const port = 3000;
         response.statusCode = 404;
     }
     response.end(body);
-    console.log(request.url);
-}).listen(port, () =>console.log(`Server in ascolto sulla porta ${port}`)); */
-
+}).listen(port, () => console.log(`Server in ascolto sulla porta ${port}`));
+ */
 
 
 //, Refactoring 1
@@ -61,17 +76,17 @@ const server = http.createServer((request, response) => {
     console.log(request.url);
 }).listen(port, () => {
     console.log(`Server in ascolto sulla porta ${port}`);
-}); */
-
+});
+ */
 
 
 //, Refactoring 2
 /* const fs = require('fs');
 const server = http.createServer((request, response) => {
     const routing = {
-        '/' : 'index.html',
-        '/home' : 'index.html',
-        '/contatti' : 'contatti.html',
+        '/': 'index.html',
+        '/home': 'index.html',
+        '/contatti': 'contatti.html',
     }
     response.setHeader('Content-Type', 'text/html; charset=utf-8');
     render(response, routing[request.url]);
@@ -92,4 +107,6 @@ function render(response, htmlFile) {
         } else {
             response.statusCode = 500;
             response.end('Errore interno al server');
-        }});} */
+        }
+    });
+} */
